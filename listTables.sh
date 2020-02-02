@@ -1,0 +1,3 @@
+function listTables {
+    ls ~/dbms ;
+}
