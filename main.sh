@@ -17,11 +17,11 @@ function listDB(){
 	if test $numofd -eq 0
 		then
 			echo "There are no databases";
-			pause
+			nap
 		else
 			echo "Databases are:-"
 			ls ~/dbms
-			pause
+			nap
 	fi
 }
 
@@ -35,18 +35,12 @@ function connectDB(){
 
 function myloc(){
 	pwd
-	pause
+	nap
 }
 
-<<<<<<< HEAD
-pause(){
-  read -p "Press [Enter] key to continue..." fackEnterKey
-}
-=======
 function nap(){
 	read -p "Press [Enter] key to continue..." 
 	}
->>>>>>> 5cc02727fef0c50be6a71f047bb76533cb349cac
 
 function readInput(){
 	local opt;
