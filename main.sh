@@ -16,11 +16,11 @@ function listDB(){
 	if test $numofd -eq 0
 		then
 			echo "There are no databases";
-			nap
+			pause
 		else
 			echo "Databases are:-"
 			ls ~/dbms
-			nap
+			pause
 	fi
 }
 
@@ -34,32 +34,30 @@ function connectDB(){
 
 function myloc(){
 	pwd
-	nap
+	pause
 }
 
-function nap(){
-	sleep 4
+pause(){
+  read -p "Press [Enter] key to continue..." fackEnterKey
 }
 
 function readInput(){
 	local opt;
 	echo "Choose an option."
 	read opt
-	clear
 	case $opt in
 		1) createDB ;;
 		2) listDB ;;
 		3) connectDB;;
 		4) myloc ;;
 		end) echo "bye"; exit;;
-		*) echo "Sorry unspecified option"; nap;;
+		*) echo "Sorry unspecified option"; pause;;
 	esac
 }
 
 
 
 function showDBMenu(){
-	clear;
 	echo "===========DBMS==========="
 	echo "1 For creating a database.";
 	echo "2 For listing databases.";
