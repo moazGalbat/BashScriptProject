@@ -13,8 +13,8 @@ function tablesMenu {
 	read opt
 	clear
 	case $opt in
-		1) . ./creatTable.sh ; tablesMenu;;
-		2) listTables ;;
+		1) creatTable $dbname ; tablesMenu;;
+		2) listTables $dbname ; tablesMenu;;
 		3) InsertTable;;
 		4) DeleteFromTable ;;
         5) SelectTable ;;
@@ -22,9 +22,6 @@ function tablesMenu {
 		*) echo "Sorry unspecified option";;
 	esac
     }
-
-    tablesMenu
-
 
     function listTables {
 

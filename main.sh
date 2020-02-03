@@ -26,10 +26,10 @@ function listDB(){
 }
 
 function connectDB(){
-	local dbname;
+	# local dbname;
 	echo "Enter the database name to connect to" 
 	read dbname
-	test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || cd ~/dbms/$dbname
+	test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || (cd ~/dbms/$dbname &&  tablesMenu) ;
 }
 
 
@@ -69,7 +69,9 @@ function showDBMenu(){
 
 
 setEnv
-
+. ./tablesMenu.sh
+. ./creatTable.sh
+. ./listTables.sh
 while :
 do 
 	showDBMenu
