@@ -1,31 +1,34 @@
 #! /bin/bash
 
+function setEnv(){
+	test -d ~/dbms || mkdir -p ~/dbms
+}
 function createDB(){
 	local dbname;
 	echo "Enter the database name" 
 	read dbname
-	test -d $dbname && echo "DataBase already exists." || mkdir $dbname && printf "Database %s created Successfully.\n" $dbname
-	nap
+	test -d ~/dbms/$dbname && echo "DataBase already exists." || mkdir ~/dbms/$dbname && printf "Database %s created Successfully.\n" $dbname
 }
 
 function listDB(){
-	# local numofd;
-	# numofd=$( ls -d */ | wc -l );
-	# if test $numofd -eq 0
-	# 	then
-	# 		echo "There are no databases";
-	# 	else
-			echo "Databases are:-"
-			ls -l | grep ^d | awk '{print $9}'
+	local numofd;
+	numofd=$( ls ~/dbms/ | wc -l );
+	if test $numofd -eq 0
+		then
+			echo "There are no databases";
 			nap
-	# fi
+		else
+			echo "Databases are:-"
+			ls ~/dbms
+			nap
+	fi
 }
 
 function connectDB(){
 	local dbname;
 	echo "Enter the database name to connect to" 
 	read dbname
-	test ! -d $dbname && printf "Database %s does not exist.\n" $dbname || cd $dbname
+	test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || cd ~/dbms/$dbname
 }
 
 
@@ -64,6 +67,9 @@ function showDBMenu(){
 	echo "4 For printing current status.";
 	echo "end For exiting.";
 }
+
+
+setEnv
 
 while :
 do 

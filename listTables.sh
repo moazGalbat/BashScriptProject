@@ -1,3 +1,3 @@
 function listTables {
-    ls ~/dbms ;
+    ls ~/$1/dbms ;
 }

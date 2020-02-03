@@ -41,3 +41,5 @@ function columnTypeFunction {
         esac
     done
 }
+
+creatTable
