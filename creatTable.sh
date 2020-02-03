@@ -11,6 +11,12 @@ function creatTable {
 
         echo "Enter number of columns"
         read columnsNumber
+        while ! [[ $columnsNumber =~ ^[0-9]+$ ]]
+        do
+            echo "please enter columns number as an Intger";
+            read columnsNumber
+        done
+
         for ((i=0; i<$columnsNumber ; i++))
         do
             echo "Enter column name"
