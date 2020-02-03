@@ -8,6 +8,7 @@ function createDB(){
 	echo "Enter the database name" 
 	read dbname
 	test -d ~/dbms/$dbname && echo "DataBase already exists." || mkdir ~/dbms/$dbname && printf "Database %s created Successfully.\n" $dbname
+	nap
 }
 
 function listDB(){
@@ -37,9 +38,15 @@ function myloc(){
 	pause
 }
 
+<<<<<<< HEAD
 pause(){
   read -p "Press [Enter] key to continue..." fackEnterKey
 }
+=======
+function nap(){
+	read -p "Press [Enter] key to continue..." 
+	}
+>>>>>>> 5cc02727fef0c50be6a71f047bb76533cb349cac
 
 function readInput(){
 	local opt;
