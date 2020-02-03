@@ -3,7 +3,7 @@
 function creatTable {
     echo "Enter Table Name"
     read tableName
-    if ( test -f ~/dbms/$tableName )
+    if ( test -f ~/dbms/$1/$tableName )
     then
         echo "Table already Exists"
     else {
@@ -26,8 +26,8 @@ function creatTable {
             metaData+="$columnName:$columnType\n"
         done 
 
-        touch ~/dbms/.$tableName;
-        touch ~/dbms/${tableName};
+        touch ~/dbms/$1/.$tableName;
+        touch ~/dbms/$1/${tableName};
         echo "table created succfully"
         echo -e $metaData >> ~/dbms/.$tableName
     }
@@ -47,5 +47,3 @@ function columnTypeFunction {
         esac
     done
 }
-
-creatTable

@@ -1,3 +1,8 @@
 function listTables {
-    ls ~/$1/dbms ;
+    ls ~/dbms/$1 ;
+    nap
 }
+
+function nap(){
+	read -p "Press [Enter] key to continue..." 
+	}
