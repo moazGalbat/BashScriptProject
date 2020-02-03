@@ -5,4 +5,4 @@ function listTables {
 
 function nap(){
 	read -p "Press [Enter] key to continue..." 
-	}
+}

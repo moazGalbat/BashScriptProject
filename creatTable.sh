@@ -29,7 +29,7 @@ function creatTable {
         touch ~/dbms/$1/.$tableName;
         touch ~/dbms/$1/${tableName};
         echo "table created succfully"
-        echo -e $metaData >> ~/dbms/.$tableName
+        echo -e $metaData >> ~/dbms/$1/.$tableName
     }
     fi
 }
