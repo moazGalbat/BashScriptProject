@@ -46,14 +46,13 @@ function insertIntoTable(){
                     row="$row$input:"   
                 fi
                 currentColumn=$(($currentColumn + 1))
-
             done
-            sed -i "a $row" ~/dbms/$dbname/$tableName
+            # sed -i "a $row" ~/dbms/$dbname/$tableName
+            echo -e $row >> ~/dbms/$dbname/$tableName
         else 
             echo "Table does not exist"
     fi
-
 }
 
 
-insertIntoTable 
+# insertIntoTable 

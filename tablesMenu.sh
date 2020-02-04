@@ -15,7 +15,7 @@ function tablesMenu {
 	case $opt in
 		1) creatTable $dbname ; tablesMenu;;
 		2) listTables $dbname ; tablesMenu;;
-		3) InsertTable;;
+		3) insertIntoTable $dbname ; tablesMenu;;
 		4) DeleteFromTable ;;
         5) SelectTable ;;
         6) . ./main.sh ;;
@@ -23,18 +23,18 @@ function tablesMenu {
 	esac
     }
 
-    function listTables {
+    # function listTables {
 
-    }
+    # }
 
-    function InsertTable {
+    # function InsertTable {
 
-    }
+    # }
 
-    function DeleteFromTable {
+    # function DeleteFromTable {
 
-    }
+    # }
 
-    function SelectTable {
+    # function SelectTable {
 
-    }
+    # }
