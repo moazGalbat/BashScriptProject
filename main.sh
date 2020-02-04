@@ -72,6 +72,7 @@ setEnv
 . ./tablesMenu.sh
 . ./creatTable.sh
 . ./listTables.sh
+. ./insertIntoTable.sh
 while :
 do 
 	showDBMenu
