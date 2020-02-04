@@ -17,4 +17,5 @@ function selectAllFromTable(){
     fi
 }
 
+
 selectAllFromTable
