@@ -15,10 +15,10 @@ function tablesMenu {
 	case $opt in
 		1) creatTable $dbname ; tablesMenu;;
 		2) listTables $dbname ; tablesMenu;;
-		3) insertIntoTable $dbname ; tablesMenu;;
+		3) InsertTable $dbname;;
 		4) DeleteFromTable ;;
         5) SelectTable ;;
-        6) . ./main.sh ;;
+        6) ./main.sh ;;
 		*) echo "Sorry unspecified option";;
 	esac
     }
