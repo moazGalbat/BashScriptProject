@@ -73,8 +73,14 @@ setEnv
 . ./creatTable.sh
 . ./listTables.sh
 . ./insertIntoTable.sh
+
+function main {
 while :
 do 
 	showDBMenu
 	readInput
 done
+}
+
+main
+
