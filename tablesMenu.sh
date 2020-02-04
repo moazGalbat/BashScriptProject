@@ -18,7 +18,7 @@ function tablesMenu {
 		3) InsertTable $dbname;;
 		4) DeleteFromTable ;;
         5) SelectTable ;;
-        6) ./main.sh ;;
+        6) main ;;
 		*) echo "Sorry unspecified option";;
 	esac
     }
