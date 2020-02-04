@@ -7,11 +7,12 @@ function selectAllFromTable(){
     if test -f ~/dbms/$dbname/$tableName
         then
             metaTable="$metaTable$tableName"
-            cols=$(awk -F: '{print $1}' ~/dbms/$dbname/$metaTable)
             echo "======================="
-            echo $cols
-            awk -F: '{gsub(":"," "); print $0,NR}' ~/dbms/$dbname/$tableName
+            awk -F: 'BEGIN{ORS="";print"No.:"}{print $1":"}END{print "\n"}' ~/dbms/$dbname/$metaTable  > ./temp
+            awk -F: '{print NR":"$0}' ~/dbms/$dbname/$tableName >> ./temp
+            column ./temp -t -s ":"
             printf "=======================\n"
+            rm ./temp
         else 
             echo "Table does not exist"
     fi
