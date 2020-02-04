@@ -21,4 +21,4 @@ function deleteFromTable(){
 
 }
 
-deleteFromTable
+# deleteFromTable

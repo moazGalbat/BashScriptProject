@@ -15,9 +15,9 @@ function tablesMenu {
 	case $opt in
 		1) creatTable $dbname ; tablesMenu;;
 		2) listTables $dbname ; tablesMenu;;
-		3) InsertTable $dbname;;
-		4) DeleteFromTable ;;
-        5) SelectTable ;;
+		3) insertIntoTable $dbname; tablesMenu;;
+		4) deleteFromTable $dbname ; tablesMenu;;
+        5) selectAllFromTable $dbname ; tablesMenu;;
         6) main ;;
 		*) echo "Sorry unspecified option";;
 	esac

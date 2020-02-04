@@ -73,6 +73,8 @@ setEnv
 . ./creatTable.sh
 . ./listTables.sh
 . ./insertIntoTable.sh
+. ./deleteFromTable.sh
+. ./selectAllFromTable.sh
 
 function main {
 while :
