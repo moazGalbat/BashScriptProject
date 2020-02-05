@@ -1,5 +1,12 @@
 function listTables {
-    ls ~/dbms/$1 ;
+    numberOfTables=$(ls ~/dbms/$dbname/ | wc -l );
+    if test $numberOfTables -eq 0
+        then
+            echo "There are not tables available"
+        else 
+            tables=$(ls ~/dbms/$dbname/)
+            echo $tables
+    fi
     nap
 }
 

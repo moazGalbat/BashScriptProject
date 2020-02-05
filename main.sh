@@ -7,7 +7,7 @@ function createDB(){
 	local dbname;
 	echo "Enter the database name" 
 	read dbname
-	test -d ~/dbms/$dbname && echo "DataBase already exists." || mkdir ~/dbms/$dbname && printf "Database %s created Successfully.\n" $dbname
+	test -d ~/dbms/$dbname && echo "DataBase already exists." || (mkdir ~/dbms/$dbname && printf "Database %s created Successfully.\n" $dbname)
 	nap
 }
 
@@ -29,7 +29,7 @@ function connectDB(){
 	# local dbname;
 	echo "Enter the database name to connect to" 
 	read dbname
-	test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || (cd ~/dbms/$dbname &&  tablesMenu) ;
+	test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || . ./tablesMenu.sh $dbname;
 }
 
 
@@ -69,20 +69,10 @@ function showDBMenu(){
 
 
 setEnv
-. ./tablesMenu.sh
-. ./creatTable.sh
-. ./listTables.sh
-. ./insertIntoTable.sh
-. ./deleteFromTable.sh
-. ./selectAllFromTable.sh
 
-function main {
 while :
 do 
 	showDBMenu
 	readInput
 done
-}
-
-main
 

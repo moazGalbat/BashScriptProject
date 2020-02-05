@@ -1,3 +1,9 @@
+. ./creatTable.sh
+. ./listTables.sh
+. ./insertIntoTable.sh
+. ./deleteFromTable.sh
+. ./selectAllFromTable.sh
+
 function tablesMenu {
     echo "===========Tables==========="
 	echo "1 Create New Table";
@@ -13,28 +19,17 @@ function tablesMenu {
 	read opt
 	clear
 	case $opt in
-		1) creatTable $dbname ; tablesMenu;;
-		2) listTables $dbname ; tablesMenu;;
-		3) insertIntoTable $dbname; tablesMenu;;
-		4) deleteFromTable $dbname ; tablesMenu;;
-        5) selectAllFromTable $dbname ; tablesMenu;;
-        6) main ;;
+		1) creatTable $dbname ;;
+		2) listTables $dbname ;;
+		3) insertIntoTable $dbname ;;
+		4) deleteFromTable $dbname ;;
+        5) selectAllFromTable $dbname ;;
+        6) break && ./main.sh ;;
 		*) echo "Sorry unspecified option";;
 	esac
     }
 
-    # function listTables {
-
-    # }
-
-    # function InsertTable {
-
-    # }
-
-    # function DeleteFromTable {
-
-    # }
-
-    # function SelectTable {
-
-    # }
+while :
+	do 
+		tablesMenu 
+done
