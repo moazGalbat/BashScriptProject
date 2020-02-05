@@ -17,7 +17,6 @@ function tablesMenu {
     local opt;
 	echo "Choose an option."
 	read opt
-	clear
 	case $opt in
 		1) creatTable $dbname ;;
 		2) listTables $dbname ;;
