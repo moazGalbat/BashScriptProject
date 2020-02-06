@@ -1,8 +1,7 @@
 #!/usr/bin/bash
 
 function creatTable {
-    echo "Enter Table Name"
-    read tableName
+    tableNameValidation
     if ( test -f ~/dbms/$1/$tableName )
     then
         echo "Table already Exists"
@@ -46,4 +45,17 @@ function columnTypeFunction {
             break;;
         esac
     done
+}
+
+function tableNameValidation {
+    echo "Enter Table Name"
+    read tableName
+    regex='^[]0-9a-zA-Z,!^`@{}=().;/~_|[-]+$'
+    if [[ $tableName =~ $regex ]]
+    then
+    return
+    else
+        echo "Please Enter a vaild Name";
+        tableNameValidation;
+    fi
 }

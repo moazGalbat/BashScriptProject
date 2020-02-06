@@ -65,7 +65,7 @@ function readInput(){
 		3) connectDB;;
 		4) dropDatabase ;;
 		end) echo "bye"; exit;;
-		*) echo "Sorry unspecified option"; pause;;
+		*) echo "Sorry unspecified option"; nap;;
 	esac
 }
 
