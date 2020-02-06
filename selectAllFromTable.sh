@@ -16,6 +16,7 @@ function selectAllFromTable(){
         else 
             echo "Table does not exist"
     fi
+    nap
 }
 
 

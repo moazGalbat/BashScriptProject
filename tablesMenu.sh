@@ -3,6 +3,7 @@
 . ./insertIntoTable.sh
 . ./deleteFromTable.sh
 . ./selectAllFromTable.sh
+. ./dropTable.sh
 
 function tablesMenu {
     echo "===========Tables==========="
@@ -11,7 +12,8 @@ function tablesMenu {
 	echo "3 Insert into Table";
 	echo "4 Delete from Table";
 	echo "5 Select From Table";
-	echo "6 Back To Main Menu";
+	echo "6 Drop a table";
+	echo "7 Back To Main Menu";
 
 
     local opt;
@@ -23,7 +25,8 @@ function tablesMenu {
 		3) insertIntoTable $dbname ;;
 		4) deleteFromTable $dbname ;;
         5) selectAllFromTable $dbname ;;
-        6) break && ./main.sh ;;
+        6) dropTable $dbname ;;
+        7) break && ./main.sh ;;
 		*) echo "Sorry unspecified option";;
 	esac
     }

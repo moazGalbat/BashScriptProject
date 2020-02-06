@@ -42,6 +42,19 @@ function nap(){
 	read -p "Press [Enter] key to continue..." 
 	}
 
+function dropDatabase {
+
+	read -p "Enter the database name to drop:  " dbname
+	if [ -d ~/dbms/$dbname ]
+	then
+	rm -r  ~/dbms/$dbname ;
+	echo "Database $dbname dropped successfully";
+	else
+	echo "Database $dbname does not exist";
+	fi
+}
+
+
 function readInput(){
 	local opt;
 	echo "Choose an option."
@@ -50,7 +63,7 @@ function readInput(){
 		1) createDB ;;
 		2) listDB ;;
 		3) connectDB;;
-		4) myloc ;;
+		4) dropDatabase ;;
 		end) echo "bye"; exit;;
 		*) echo "Sorry unspecified option"; pause;;
 	esac
@@ -63,7 +76,7 @@ function showDBMenu(){
 	echo "1 For creating a database.";
 	echo "2 For listing databases.";
 	echo "3 For connecting to a database.";
-	echo "4 For printing current status.";
+	echo "4 For dropping database";
 	echo "end For exiting.";
 }
 
