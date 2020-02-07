@@ -10,7 +10,7 @@ function creatTable {
 
         echo "Enter number of columns"
         read -e columnsNumber
-        while ! [[ $columnsNumber =~ ^[0-9]+$ ]]
+        while ! [[ $columnsNumber =~ ^[1-9]+$ ]]
         do
             echo "please enter columns number as an Intger";
             read -e columnsNumber
