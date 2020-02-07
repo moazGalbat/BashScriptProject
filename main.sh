@@ -15,7 +15,7 @@ function createDB(){
 function databaseNameValidation {
 	local dbname;
     echo "Enter the database Name"
-    read dbname
+    read -e dbname
     regex='^[]0-9a-zA-Z,!^`@{}=();/~_|[-]+$'
     if [[ $dbname =~ $regex ]]
     then
@@ -43,7 +43,7 @@ function listDB(){
 function connectDB(){
 	# local dbname;
 	echo "Enter the database name to connect to" 
-	read dbname
+	read -e dbname
 	test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || . ./tablesMenu.sh $dbname;
 }
 
@@ -59,7 +59,7 @@ function nap(){
 
 function dropDatabase {
 
-	read -p "Enter the database name to drop:  " dbname
+	read -ep "Enter the database name to drop:  " dbname
 	if [ -d ~/dbms/$dbname ]
 	then
 	rm -r  ~/dbms/$dbname ;

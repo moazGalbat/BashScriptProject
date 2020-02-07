@@ -9,23 +9,23 @@ function creatTable {
         metaData="";
 
         echo "Enter number of columns"
-        read columnsNumber
+        read -e columnsNumber
         while ! [[ $columnsNumber =~ ^[0-9]+$ ]]
         do
             echo "please enter columns number as an Intger";
-            read columnsNumber
+            read -e columnsNumber
         done
 
         for ((i=0; i<$columnsNumber ; i++))
         do
             echo "Enter column name"
-            read columnName
+            read -e columnName
 
             # validation on column name to avoid duplication
             val=$(echo -e $metaData | awk -F: '{print $1}' | grep -w $columnName)
             while [ $val ]
             do 
-            read -p "the column $columnName you entered is duplicated please enter a another name:    " columnName;
+            read -ep "the column $columnName you entered is duplicated please enter a another name:    " columnName;
             val=$(echo -e $metaData | awk -F: '{print $1}' | grep -w $columnName);
             done
 
@@ -58,7 +58,7 @@ function columnTypeFunction {
 
 function tableNameValidation {
     echo "Enter Table Name"
-    read tableName
+    read -e tableName
     regex='^[]0-9a-zA-Z,!^`@{}=();/~_|[-]+$'
     if [[ $tableName =~ $regex ]]
     then

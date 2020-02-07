@@ -1,6 +1,6 @@
 function dropTable {
 
-	read -p "Enter the table name to drop:  " tableName
+	read -ep "Enter the table name to drop:  " tableName
 	if ( test -f ~/dbms/$1/$tableName )
     then
         rm ~/dbms/$1/$tableName ;

@@ -2,7 +2,7 @@
 
 function deleteFromTable(){
     echo "Enter Table name you eant to delete from."
-    read tableName
+    read -e tableName
     if test -f ~/dbms/$dbname/$tableName
         then
             linesInFile=$(cat ~/dbms/$dbname/$tableName | wc -l )
@@ -10,7 +10,7 @@ function deleteFromTable(){
                 then
                     echo "Total number of rows: $linesInFile."
                     echo "Enter line number you want to delete"
-                    read lineNumber
+                    read -e lineNumber
                     sed -i "${lineNumber}d" ~/dbms/$dbname/$tableName
                 else
                     echo "Table is empty"

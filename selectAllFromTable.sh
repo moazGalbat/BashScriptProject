@@ -2,7 +2,7 @@
 
 function selectAllFromTable(){
     echo "Enter table name to select from"
-    read tableName
+    read -e tableName
     metaTable="."
     if test -f ~/dbms/$dbname/$tableName
         then

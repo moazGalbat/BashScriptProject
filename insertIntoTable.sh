@@ -19,20 +19,20 @@ function insertIntoTable(){
                     case $type in 
                     int)
                         echo "Enter a number value"
-                        read input 
+                        read -e input 
                         while ! [[ $input =~ ^[0-9]+$ ]]
                             do
                                 echo "please enter a number value"
-                                read input
+                                read -e input
                             done
                         ;;
                     string)
                         echo "Enter a string"
-                        read input 
+                        read -e input 
                         while ! [[ $input =~ ^[a-Z]+$ ]]
                             do
                                 echo "please enter a string value"
-                                read input
+                                read -e input
                             done
                         ;;
                     *)
