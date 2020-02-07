@@ -20,6 +20,15 @@ function creatTable {
         do
             echo "Enter column name"
             read columnName
+
+            # validation on column name to avoid duplication
+            val=$(echo -e $metaData | awk -F: '{print $1}' | grep -w $columnName)
+            while [ $val ]
+            do 
+            read -p "the column $columnName you entered is duplicated please enter a another name:    " columnName;
+            val=$(echo -e $metaData | awk -F: '{print $1}' | grep -w $columnName);
+            done
+
             echo "Enter type for column $columnName";
             columnTypeFunction
             metaData+="$columnName:$columnType\n"
@@ -50,7 +59,7 @@ function columnTypeFunction {
 function tableNameValidation {
     echo "Enter Table Name"
     read tableName
-    regex='^[]0-9a-zA-Z,!^`@{}=().;/~_|[-]+$'
+    regex='^[]0-9a-zA-Z,!^`@{}=();/~_|[-]+$'
     if [[ $tableName =~ $regex ]]
     then
     return

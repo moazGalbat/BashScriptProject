@@ -4,11 +4,26 @@ function setEnv(){
 	test -d ~/dbms || mkdir -p ~/dbms
 }
 function createDB(){
-	local dbname;
-	echo "Enter the database name" 
-	read dbname
+	# local dbname;
+	# echo "Enter the database name" 
+	# read dbname
+	databaseNameValidation
 	test -d ~/dbms/$dbname && echo "DataBase already exists." || (mkdir ~/dbms/$dbname && printf "Database %s created Successfully.\n" $dbname)
 	nap
+}
+
+function databaseNameValidation {
+	local dbname;
+    echo "Enter the database Name"
+    read dbname
+    regex='^[]0-9a-zA-Z,!^`@{}=();/~_|[-]+$'
+    if [[ $dbname =~ $regex ]]
+    then
+    return
+    else
+        echo "Please Enter a vaild Name";
+        databaseNameValidation;
+    fi
 }
 
 function listDB(){
