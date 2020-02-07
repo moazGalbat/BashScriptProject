@@ -21,6 +21,12 @@ function creatTable {
             echo "Enter column name"
             read -e columnName
 
+            regex='^[]0-9a-zA-Z,!^`@{}=().;/~_[:space:]|[-]+$'
+            while ! [[ $columnName =~ $regex ]]
+                do
+                    read -ep "Enter a vaild name: " columnName
+                done
+
             # validation on column name to avoid duplication
             val=$(echo -e $metaData | awk -F: '{print $1}' | grep -w $columnName)
             while [ $val ]
