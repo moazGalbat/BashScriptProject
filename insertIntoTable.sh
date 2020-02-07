@@ -29,7 +29,7 @@ function insertIntoTable(){
                     string)
                         echo "Enter a string"
                         read -e input 
-                        while ! [[ $input =~ ^[a-Z]+$ ]]
+                        while ! [[ $input =~ ^[a-Z0-9]+$ ]]
                             do
                                 echo "please enter a string value"
                                 read -e input
