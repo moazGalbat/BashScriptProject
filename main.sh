@@ -13,7 +13,6 @@ function createDB(){
 }
 
 function databaseNameValidation {
-	local dbname;
     echo "Enter the database Name"
     read -e dbname
     regex='^[]0-9a-zA-Z,!^`@{}=();/~_|[-]+$'
