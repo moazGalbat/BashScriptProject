@@ -1,7 +1,7 @@
 #! /bin/bash
 
 function deleteFromTable(){
-    echo "Enter Table name you eant to delete from."
+    echo "Enter Table name you want to delete from."
     read -e tableName
     if test -f ~/dbms/$dbname/$tableName
         then

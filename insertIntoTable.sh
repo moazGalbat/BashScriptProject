@@ -20,7 +20,7 @@ function insertIntoTable(){
                     int)
                         echo "Enter a number value"
                         read -e input 
-                        while ! [[ $input =~ ^[0-9]+$ ]]
+                        while ! [[ $input =~ ^[1-9]+$ ]]
                             do
                                 echo "please enter a number value"
                                 read -e input
@@ -29,7 +29,8 @@ function insertIntoTable(){
                     string)
                         echo "Enter a string"
                         read -e input 
-                        while ! [[ $input =~ ^[a-Z0-9]+$ ]]
+                        stringRegex='^[]0-9a-zA-Z,!^`@{}=().;/~_[:space:]|[-]+$'
+                        while ! [[ $input =~ $stringRegex ]]
                             do
                                 echo "please enter a string value"
                                 read -e input
