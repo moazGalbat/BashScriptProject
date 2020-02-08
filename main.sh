@@ -43,7 +43,15 @@ function connectDB(){
 	# local dbname;
 	echo "Enter the database name to connect to" 
 	read -e dbname
-	test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || . ./tablesMenu.sh $dbname;
+
+	local regex='^[]0-9a-zA-Z,!^`@{}=().;/~_|[-]+$'
+	if [[ $dbname =~ $regex ]]
+        then
+			test ! -d ~/dbms/$dbname && printf "Database %s does not exist.\n" $dbname && nap || . ./tablesMenu.sh $dbname;
+        else
+			printf "Database does not exist.\n" 
+    fi
+	
 }
 
 
@@ -59,13 +67,20 @@ function nap(){
 function dropDatabase {
 
 	read -ep "Enter the database name to drop:  " dbname
-	if [ -d ~/dbms/$dbname ]
-	then
-	rm -r  ~/dbms/$dbname ;
-	echo "Database $dbname dropped successfully";
-	else
-	echo "Database $dbname does not exist";
-	fi
+	local regex='^[]0-9a-zA-Z,!^`@{}=().;/~_|[-]+$'
+	if [[ $dbname =~ $regex ]]
+        then
+				if [ -d ~/dbms/$dbname ]
+				then
+				rm -r  ~/dbms/$dbname ;
+				echo "Database $dbname dropped successfully";
+				else
+				echo "Database $dbname does not exist";
+				fi
+        else
+				echo "Database $dbname does not exist";
+    fi
+	
 }
 
 

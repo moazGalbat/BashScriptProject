@@ -11,12 +11,20 @@ function deleteFromTable(){
                     echo "Total number of rows: $linesInFile."
                     echo "Enter line number you want to delete"
                     read -e lineNumber
-                    sed -i "${lineNumber}d" ~/dbms/$dbname/$tableName
+
+                    if test $lineNumber -gt $linesInFile 
+                    then
+                        echo "line is out of boundry"
+                    else
+                        sed -i "${lineNumber}d" ~/dbms/$dbname/$tableName
+                        echo "line deleted successfuly"
+                    fi
+
                 else
                     echo "Table is empty"
                 fi
         else
-            echo "Table deos not exist."
+            echo "Table does not exist."
     fi
 
 }
