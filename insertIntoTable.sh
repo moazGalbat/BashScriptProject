@@ -20,7 +20,7 @@ function insertIntoTable(){
                     int)
                         echo "Enter a number value"
                         read -e input 
-                        while ! [[ $input =~ ^[1-9]+$ ]]
+                        while ! [[ $input =~ ^[0-9]+$ ]]
                             do
                                 echo "please enter a number value"
                                 read -e input
